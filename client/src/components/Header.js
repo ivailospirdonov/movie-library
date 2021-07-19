@@ -1,12 +1,13 @@
 import React, { useRef, useState } from 'react'
+import { useHistory } from 'react-router-dom';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
-import { getSearchedMovies } from '../services/movieServices';
 
 
 export default function Header() {
     const searchRef = useRef();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const history = useHistory();
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -14,7 +15,7 @@ export default function Header() {
         try {
             setError('');
             setLoading(true);
-            await getSearchedMovies(searchRef.current.value);
+            history.push('/search', searchRef.current.value);
         } catch (e) {
             setError('Failed to reset the password!');
         }
