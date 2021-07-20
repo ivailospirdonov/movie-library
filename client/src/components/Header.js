@@ -1,25 +1,20 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { useHistory } from 'react-router-dom';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 
 
 export default function Header() {
     const searchRef = useRef();
-    const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false);
     const history = useHistory();
 
     async function handleSubmit(e) {
         e.preventDefault()
 
         try {
-            setError('');
-            setLoading(true);
             history.push('/search', searchRef.current.value);
         } catch (e) {
-            setError('Failed to reset the password!');
+            console.log('Search failed!');
         }
-        setLoading(false);
 
     }
 

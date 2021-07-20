@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { updateFavorite } from '../services/movieServices';
-import DetailsPage from './DetailsPage';
 
 export default function MovieCard( { movieId, name, genres, runtime, premiered, officialSite, image, summary, favorite, rating, note}) {
     
