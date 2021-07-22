@@ -23,15 +23,15 @@ console.log('alo da');
                 <div className="col-3">
                     <Link to={`/details/${movieId}`} className="movieSearchedCardInfoHeading">
                         <div className="movieCardImgWrap">
-                            <img src={image.original} className="movieSearchedCardImg" />
+                            {image != undefined && <img src={image.original} className="movieSearchedCardImg" />}
                         </div>
                     </Link>
                 </div>
                 <div className="movieSearchedCardInfo">
                     <Link to={`/details/${movieId}`} className="movieSearchedCardInfoHeading">
-                        <h2>{name} ({premiered.slice(0, 4)})</h2>
+                        {premiered != undefined && <h2>{name} ({premiered.slice(0, 4)})</h2>}
                     </Link>
-                    <p>{genres.join(', ')} | {runtime} minutes</p>
+                    {genres != undefined &&<p>{genres.join(', ')} | {runtime} minutes</p>}
                     <p className="movieSearchedCardInfoSummary">{summary}</p>
                     <p><a href={officialSite}>Visit official site</a></p>
                     {favoriteButton == true && <Button variant="outline-danger" onClick={handleMovieFavoriteClick}>Remove from favorites</Button>}
