@@ -1,6 +1,7 @@
-import React, { useRef } from 'react'
-import { useHistory } from 'react-router-dom';
-import { Form, Button, Card, Alert } from 'react-bootstrap';
+import React, { useRef } from 'react';
+import { } from 'react-bootstrap';
+import { useHistory, Link } from 'react-router-dom';
+import { Form, Button, Card } from 'react-bootstrap';
 
 
 export default function Header() {
@@ -20,21 +21,33 @@ export default function Header() {
 
     return (
         <React.Fragment>
-            <Card className="forgotPassCard">
-                <Card.Body>
-                    {error && <Alert variant="danger">{error}</Alert>}
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group id="search">
-                            <Form.Label>Search</Form.Label>
-                            <Form.Control type="seacrh" ref={searchRef} />
-                            <Button disabled={loading} className="" type="submit" >Search</Button>
-                        </Form.Group>
-                    </Form>
+            <Card >
+                <Card.Body className=" d-flex">
+                    <section className="nav-logo-section col-4">
+                        <Link to="/" ><h3>My Movie Collection</h3></Link>
+                    </section>
+                    <section className="nav-search-section col-8">
+                        <Form onSubmit={handleSubmit}>
+                            <Form.Group id="search" className="d-flex justify-content-end">
+                                <Form.Control className="searchField" type="seacrh" ref={searchRef} placeholder="Search by movie title..."/>
+                                <Button className="" type="submit" variant="outline-success">Search</Button>
+                            </Form.Group>
+                        </Form>
+                    </section>
                 </Card.Body>
             </Card>
             <style jsx>{`
+                .nav-logo-section a{
+                    color: #000;
+                    text-decoration: none;
+                }
+
+                .searchField {
+                    margin-right: 10px;
+                    width: 40%;
+                }
 
             `}</style>
-        </React.Fragment>
+        </React.Fragment >
     )
 }
