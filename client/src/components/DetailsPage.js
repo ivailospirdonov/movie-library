@@ -36,10 +36,10 @@ export default function DetailsPage({ match }) {
 
 
     return (
-        <div>
+        <React.Fragment>
             Details Page
 
-            <MovieCard
+            {movie.length > 0 && <MovieCard
                 key={movie._id}
                 movieId={movie._id}
                 name={movie.name}
@@ -52,7 +52,7 @@ export default function DetailsPage({ match }) {
                 favorite={movie.favorite}
                 rating={movie.rating}
                 note={movie.note}
-            />
+            />}
 
             <form>
                 <h1>{movie.name}</h1>
@@ -66,7 +66,6 @@ export default function DetailsPage({ match }) {
                     <input type="text" ref={noteRef} defaultValue={movie.note} onChange={handleNoteChange} />
                 </label>
             </form>
-
-        </div>
+        </React.Fragment>
     )
 }

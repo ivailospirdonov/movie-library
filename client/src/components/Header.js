@@ -21,7 +21,7 @@ export default function Header() {
 
     return (
         <React.Fragment>
-            <Card >
+            <Card className=" header">
                 <Card.Body className=" d-flex">
                     <section className="nav-logo-section col-4">
                         <Link to="/" ><h3>My Movie Collection</h3></Link>
@@ -37,6 +37,11 @@ export default function Header() {
                 </Card.Body>
             </Card>
             <style jsx>{`
+
+                .header{
+                    background-color: #eee;
+                }
+
                 .nav-logo-section a{
                     color: #000;
                     text-decoration: none;
